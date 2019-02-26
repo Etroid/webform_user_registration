@@ -6,6 +6,8 @@ use Drupal\Tests\webform\Functional\WebformBrowserTestBase;
 
 /**
  * Functional tests for the webform_user_registration webform plugin.
+ *
+ * @group webform_user_registration
  */
 class WebformUserRegistrationTest extends WebformBrowserTestBase {
 
@@ -30,13 +32,6 @@ class WebformUserRegistrationTest extends WebformBrowserTestBase {
    *
    * @var \Drupal\Core\Entity\EntityInterface*/
   protected $webformEntity;
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    parent::setUp();
-  }
 
   /**
    * Test user registration without admin approval/email verification.
