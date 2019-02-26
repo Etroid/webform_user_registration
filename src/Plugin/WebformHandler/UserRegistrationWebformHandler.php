@@ -290,7 +290,8 @@ class UserRegistrationWebformHandler extends WebformHandlerBase {
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::validateConfigurationForm($form, $form_state);
 
-    // Get the mapping between webform elements and user entity properties/fields.
+    // Get the mapping between webform elements and user entity properties or
+    // fields.
     $user_field_mapping = $form_state->getValue('user_field_mapping', []);
 
     // Ensure we have a valid mapping for e-mail and username if we are creating
@@ -298,7 +299,8 @@ class UserRegistrationWebformHandler extends WebformHandlerBase {
     $create_user_enabled = $form_state->getValue(['create_user', 'enabled'], FALSE);
     if ($create_user_enabled) {
       // User Account creation requires at least a unique e-mail address.
-      // Assert we have a webform element as the source for a user e-mail address.
+      // Assert we have a webform element as the source for a user e-mail
+      // address.
       if (!in_array('mail', $user_field_mapping)) {
         $form_state->setErrorByName('user_field_mapping', $this->t(
           'User creation requires at least a source for e-mail address'));
@@ -465,8 +467,8 @@ class UserRegistrationWebformHandler extends WebformHandlerBase {
    *   Associative array of user data, keyed by user entity property/field.
    */
   protected function updateUserAccount(UserInterface $account, array $user_data) {
-    // User entity does not allow us to update the e-mail address if the password
-    // is not present.
+    // User entity does not allow us to update the e-mail address if the
+    // password is not present.
     if (isset($user_data['mail']) && !isset($user_data['pass'])) {
       unset($user_data['mail']);
     }
