@@ -1,0 +1,23 @@
+{
+  "name": "drupal/webform_user_registration",
+  "description": "Webform user registration handler.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "require-dev": {
+    "drupal/coder": "^8.2",
+    "jakub-onderka/php-console-highlighter": "^0.3.2",
+    "jakub-onderka/php-parallel-lint": "^0.9.2"
+  },
+  "minimum-stability": "alpha",
+  "scripts": {
+    "phplint": "vendor/bin/parallel-lint --exclude vendor/ --exclude .idea/ -e php,module,inc,install,profile,theme .",
+    "phpcs": "vendor/bin/phpcs --ignore=vendor/,.idea/ --standard=vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml --extensions=php,module,inc,install,profile,theme --report=full --warning-severity=0 .",
+    "phpcbf": "vendor/bin/phpcbf --ignore=vendor/,.idea/ --standard=vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml --extensions=php,module,inc,install,profile,theme .",
+  },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  }
+}

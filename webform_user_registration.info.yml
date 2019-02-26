@@ -1,0 +1,7 @@
+name: 'Webform User Registration'
+type: module
+description: 'Create a new user upon form submission!'
+core: 8.x
+package: 'Webform'
+dependencies:
+  - 'webform:webform'

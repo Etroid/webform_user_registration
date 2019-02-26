@@ -1,0 +1,8 @@
+name: 'Webform User Registration Test Module'
+type: module
+description: 'Support module for webform user registration handler testing.'
+package: Testing
+core: 8.x
+dependencies:
+  - 'user:user'
+  - 'webform_user_registration:webform_user_registration'

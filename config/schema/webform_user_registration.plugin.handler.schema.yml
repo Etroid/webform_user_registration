@@ -1,0 +1,45 @@
+webform.handler.user_registration:
+  type: mapping
+  label: 'User Registration'
+  mapping:
+    create_user:
+      type: mapping
+      label: "User Creation"
+      mapping:
+        enabled:
+          type: boolean
+          label: "Enable user creation"
+        roles:
+          type: sequence
+          label: "Default roles upon user creation"
+          sequence:
+            type: string
+            label: "Role"
+        admin_approval:
+          type: boolean
+          label: "Requires admin approval upon user creation"
+        admin_approval_message:
+          type: text
+          label: "Message to display to the end user when admin approval is required"
+        email_verification:
+          type: boolean
+          label: "Requires email verification upon user creation"
+        email_verification_message:
+          type: text
+          label: "Message to display to the end user when email verification is required"
+        success_message:
+          type: text
+          label: "Message to display to the end user upon successful registration/login"
+    update_user:
+      type: mapping
+      label: "User Account update"
+      mapping:
+        enabled:
+          type: boolean
+          label: "Enable user account update"
+    user_field_mapping:
+      type: sequence
+      label: "User field mapping"
+      sequence:
+        type: string
+        label: "Element key"

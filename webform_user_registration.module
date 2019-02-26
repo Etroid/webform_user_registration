@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains webform_user_registration.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function webform_user_registration_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the webform_user_registration module.
+    case 'help.page.webform_user_registration':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Create/Update a user entity upon webform submission!') . '</p>';
+      return $output;
+
+    default:
+  }
+}
