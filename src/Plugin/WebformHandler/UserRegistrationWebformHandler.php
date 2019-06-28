@@ -346,6 +346,12 @@ class UserRegistrationWebformHandler extends WebformHandlerBase {
       }
     }
 
+    // If no account is created or updated we do not want to proceed with
+    // validation.
+    if (empty($account)) {
+      return;
+    }
+
     // Flag violations of user fields and properties.
     /** @var \Drupal\Core\Entity\EntityConstraintViolationListInterface $violations */
     $violations = $account->validate();
