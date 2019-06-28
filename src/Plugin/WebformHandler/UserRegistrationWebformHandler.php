@@ -385,12 +385,19 @@ class UserRegistrationWebformHandler extends WebformHandlerBase {
         if ($admin_approval) {
           $message = $this->configuration['create_user']['admin_approval_message'];
           _user_mail_notify('register_pending_approval', $account);
+          // As it's a new account and the user will not be automatically logged
+          // in - as admin approval is required - set the submission owner.
+          $webform_submission->setOwner($account);
+          $webform_submission->save();
         }
         // Do we need to send an email verification to the user?
         elseif ($email_verification) {
           $message = $this->configuration['create_user']['email_verification_message'];
           _user_mail_notify('register_no_approval_required', $account);
-
+          // As it's a new account and the user will not be automatically logged
+          // in - as email verification is required - set the submission owner.
+          $webform_submission->setOwner($account);
+          $webform_submission->save();
         }
         else {
           $message = $this->configuration['create_user']['success_message'];
